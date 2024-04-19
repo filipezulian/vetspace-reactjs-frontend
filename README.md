@@ -1,4 +1,4 @@
-# ![VetSpace Logo](./Doc/imgs/logo.png) VetSpace - Projeto Integrador 2 - Frontend
+# VetSpace - Projeto Integrador 2 - Frontend
 
 ###### Este projeto foi desenvolvido para a disciplina de Projeto Integrador 2 da faculdade na UDESC.
 
@@ -9,7 +9,7 @@
 ## Tecnologias Utilizadas
 ![HTML](https://skillicons.dev/icons?i=html)
 ![CSS](https://skillicons.dev/icons?i=css)
-[![React](https://skillicons.dev/icons?i=react)](https://react.dev/)
+[![React](https://skillicons.dev/icons?i=next)](https://nextjs.org/)
 [![Tailwind](https://skillicons.dev/icons?i=tailwind)](https://tailwindcss.com/)
 [![Postgres](https://skillicons.dev/icons?i=postgres)](https://www.postgresql.org/)
 

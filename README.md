@@ -9,7 +9,7 @@
 ## Tecnologias Utilizadas
 ![HTML](https://skillicons.dev/icons?i=html)
 ![CSS](https://skillicons.dev/icons?i=css)
-[![React](https://skillicons.dev/icons?i=next)](https://nextjs.org/)
+[![React](https://skillicons.dev/icons?i=react)](https://react.dev/)
 [![Tailwind](https://skillicons.dev/icons?i=tailwind)](https://tailwindcss.com/)
 [![Postgres](https://skillicons.dev/icons?i=postgres)](https://www.postgresql.org/)
 

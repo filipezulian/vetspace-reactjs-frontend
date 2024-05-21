@@ -1,0 +1,27 @@
+body{
+    margin-top: 10px !important;
+  }
+.bodyBlogs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.blogColumnDetail{
+    width: 20%;
+    background-image: urL("../public/patinhasVerde.svg");
+}
+.telasLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D8FFEA;
+    height: 89.75vh;
+}
+body:has(.telasLogin) {
+    overflow: hidden;
+}
+@media screen and (min-width:1600px) {
+    .telasLogin{
+        height: 100vh;
+    }
+}

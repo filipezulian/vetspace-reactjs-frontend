@@ -14,17 +14,17 @@ function BlogCard() {
     ];
 
     return (
-        <div>
+        <div className='cardDiv'>
             {cards.map((card, index) => (
-                <div className="card" key={index}>
+                <div className="cards" key={index}>
                     <div className="cardHeader">
                         <span>{card.titulo}</span>
                         <span>{card.data}</span>
                     </div>
-                    <div>
+                    <div className='cardConteudo'>
                         <span>{card.conteudo}</span>
                     </div>
-                    <div>
+                    <div className='cardFooter'>
                         <span>{card.funcionario}</span>
                     </div>
                 </div>

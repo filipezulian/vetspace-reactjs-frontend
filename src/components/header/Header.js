@@ -12,7 +12,7 @@ const Header = ({ signed, user, setSigned }) => {
   });
   return (
     <div>
-      <header className="d-flex flex-wrap align-items-center py-2 mb-3 line-header">
+      <header className="d-flex flex-wrap align-items-center line-header">
         <nav className="navBar">
           <Link to={"/"} className="">
             <span className="fs-4 text-dark">
@@ -101,9 +101,9 @@ const Header = ({ signed, user, setSigned }) => {
             )}
           </ul>
           {!signed && (
-            <button className="corverde" onClick={() => setSigned(true)}>
+            <Link className="corverde" to={"/login"}>
               LOGIN
-            </button>
+            </Link>
           )}
           {signed && (
             <>
@@ -140,7 +140,7 @@ const Header = ({ signed, user, setSigned }) => {
                       <Offcanvas.Body className="FormWrapper">
                         <Form className="bodyOffCanvas">
                           <span className="navText">
-                            Modificar Dados do Usuário:{" "}
+                            Modificar Dados do Usuário:
                           </span>
                           <Form.Label className="w-100 mt-3">Nome:</Form.Label>
                           <Form.Control

@@ -1,5 +1,7 @@
-.card{
-    width: 50%;
+.cards{
+    height: 200px;
+    justify-content: space-between;
+    width: 80%;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -14,4 +16,14 @@
     display: flex;
     justify-content: space-between;
     font-weight: 700;
+}
+.cardFooter{
+    font-size: small;
+    font-weight: 100;
+}
+.cardConteudo{
+    text-align: start;
+}
+.cardDiv{
+    padding: 30px;
 }

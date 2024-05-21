@@ -1,0 +1,49 @@
+.loginBody{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    margin-top: 10px;
+    padding: 1.4rem 0;
+    border-radius: 20px;
+    background: linear-gradient(164deg, rgba(144,210,174,1) 0%, rgba(74,108,89,1) 100%);
+}
+.formInputs{
+    text-align: left;
+    font-weight: 500;
+    width: 70%;
+}
+.EntrarButton{
+    border: none;
+    background-color: #7CB596;
+    border-radius: 7px;
+    color: #fff;
+    width: 150px;
+    height: 35px;
+}
+.cadastrarLink{
+    color: white;
+    font-weight: 500;
+    margin-left: .5rem;
+}
+.cadastrarLinkSpan{
+    color: white;
+}
+.boxShadow{
+    box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.45);
+}
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+body:has(.telasLogin) {
+    background-color: #D8FFEA !important;
+}
+@media screen and (min-width:1600px) {
+    .loginBody{
+        width: 25%;
+        padding: 3rem 0;
+    }
+}

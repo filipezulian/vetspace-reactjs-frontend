@@ -5,6 +5,8 @@ import Header from "./components/header/Header";
 import Emergencia from "./pages/site/Emergencia";
 import NossaEquipe from "./pages/site/NossaEquipe";
 import { useState } from "react";
+import Login from "./pages/site/Login";
+import Cadastro from "./pages/site/Cadastro";
 
 const PrivateCliente = ({ Item, signed, tipo}) => {
     return (signed > 0 && tipo === '3') ? <Item /> : <Blogs/>
@@ -30,6 +32,8 @@ const MyRoutes = () => {
                     <Route element={<Blogs/>} path="/"></Route>
                     <Route element={<NossaEquipe/>} path="/nossaEquipe"></Route>
                     <Route element={<Emergencia/>} path="/emergencia"></Route>
+                    <Route element={<Login/>} path="/login"></Route>
+                    <Route element={<Cadastro/>} path="/cadastro"></Route>
                 </Routes>
             </BrowserRouter>
         </>

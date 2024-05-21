@@ -1,0 +1,35 @@
+.corverde{
+    text-decoration: none;
+    border: none;
+    background-color: #7CB596;
+    border-radius: 7px;
+    color: #fff;
+    width: 150px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.divBotoes{
+    margin-top: 2rem;
+    display: flex;
+    gap: 3rem;
+}
+.divCadastro{
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 3rem;
+    background: linear-gradient(164deg, rgba(144,210,174,1) 0%, rgba(74,108,89,1) 100%);
+}
+.seusDados{
+    font-size: XX-LARGE;
+    font-weight: 700;
+    color: #649379;
+    letter-spacing: 4px;
+}
+.formInputs{
+    text-align: left;
+    font-weight: 500;
+    width: 100%;
+}

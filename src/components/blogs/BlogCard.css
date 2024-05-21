@@ -1,0 +1,17 @@
+.card{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding: 1rem;
+    border: 1px solid #B6B6B6;
+    border-radius: 15px;
+    align-items: flex-start;
+}
+.cardHeader{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+}

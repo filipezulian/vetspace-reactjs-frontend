@@ -1,15 +1,30 @@
-import React, { useState } from 'react'
-import "../../General.css"
-import ComponentCadastro from '../../components/cadastro/ComponentCadastro'
+import React, { useState } from 'react';
+import "../../General.css";
+import ComponentCadastro from '../../components/cadastro/ComponentCadastro';
+import CadastroPet from '../../components/cadastro/CadastroPet';
 
 const Cadastro = () => {
 
-const [Modal, setModal] = useState(1);
+  const [modal, setModal] = useState(1);
+  const [user, setUser] = useState({
+    name: "",
+    telefone: "",
+    email: "",
+    password: ""
+  });
 
-return (
+  return (
     <div className='telasLogin'>
-    {(Modal == 1) && (<ComponentCadastro/>)}
+      {modal === 1 && (
+        <ComponentCadastro 
+          setModal={setModal}
+          setUser={setUser} 
+          user={user}
+        />
+      )}
+      {modal === 2 && <CadastroPet setModal={setModal} user={user}/>}
     </div>
-)
-}
-export default Cadastro
+  );
+};
+
+export default Cadastro;

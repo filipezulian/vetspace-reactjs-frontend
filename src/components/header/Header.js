@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { useAutCtx } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
 import { Navbar, Container, Offcanvas, Form } from "react-bootstrap";
 

@@ -23,6 +23,13 @@ const BlogCard = () => {
     }/${year}`;
   };
 
+  if (!cards) {
+    return <div className="semCard">
+                <span className="semCardText">Dessa vez você e seu pet estão sem sorte, estamos sem Blogs por agora!</span>
+                <img src="cachorro_guia.png" alt="" height="500px"></img>
+           </div>
+  }
+
   return (
     <div className="cardDiv">
       {cards.map((card, index) => (

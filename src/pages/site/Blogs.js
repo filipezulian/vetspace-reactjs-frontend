@@ -1,4 +1,3 @@
-import React from 'react'
 import BlogCard from '../../components/blogs/BlogCard'
 import "../../General.css"
 

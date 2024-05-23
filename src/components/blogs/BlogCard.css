@@ -26,4 +26,5 @@
 }
 .cardDiv{
     padding: 30px;
+    min-width: 60%;
 }

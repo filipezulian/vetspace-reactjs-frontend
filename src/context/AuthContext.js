@@ -56,32 +56,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const recuperarUsuarios = async () => {
-        try {
-            const response = await fetch('http://localhost:8080/api/pessoas', {
-                method: "GET",
-                mode: "cors",
-                cache: "no-cache",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                redirect: "follow",
-                referrerPolicy: "no-referrer",
-            });
-
-            const data = await response.json()
-            data.sort((a, b) => {
-                if (a.nome > b.nome)
-                    return 1
-                if (a.nome < b.nome)
-                    return -1
-                return 0
-            })
-            localStorage.setItem("users_db", JSON.stringify(data))
-            return data
-
-        } catch (err) {
-            console.log(err)
-        }
+        
     }
 
     const autenticar = async (email, senha) => {
@@ -91,24 +66,6 @@ export const AuthProvider = ({ children }) => {
             "senha": senha
         }
 
-        try {
-            const response = await fetch('http://localhost:8080/api/pessoas/autenticar', {
-                method: "POST",
-                mode: "cors",
-                cache: "no-cache",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                redirect: "follow",
-                referrerPolicy: "no-referrer",
-                body: JSON.stringify(credenciais),
-            });
-
-            const data = await response.json()
-            return data
-        } catch (err) {
-            console.log(err)
-        }
     }
 
     const atualizarRegistros = () => {

@@ -1,36 +1,46 @@
-import React from 'react';
-import "./BlogCard.css"
+import React, { useEffect, useState } from "react";
+import "./BlogCard.css";
+import { getBlogs } from "../../routes/Blog";
 
-function BlogCard() {
-    const cards = [
-        { titulo: "Feliz Páscoa", data: "31/03", funcionario: "Filipe Zulian", conteudo: "Feliz Páscoa para todos os nossos pets! Tome mais cuidado nessas epocas! Cachorro e gatos não podem comer chocolates!!" },
-        { titulo: "Ullamcorper molestie!", data: "20/03", funcionario: "Funcionário Generico 1", conteudo: "Lorem ipsum dolor sit amet consectetur. Vulputate faucibus quisque eget nec blandit ac suscipit. Ullamcorper molestie augue." },
-        { titulo: "Feliz Páscoa", data: "31/04", funcionario: "Filipe Zulian", conteudo: "Feliz Páscoa para todos os nossos pets! Tome mais cuidado nessas epocas! Cachorro e gatos não podem comer chocolates!!" },
-        { titulo: "Feliz Páscoa", data: "31/04", funcionario: "Filipe Zulian", conteudo: "Feliz Páscoa para todos os nossos pets! Tome mais cuidado nessas epocas! Cachorro e gatos não podem comer chocolates!!" },
-        { titulo: "Feliz Páscoa", data: "31/04", funcionario: "Filipe Zulian", conteudo: "Feliz Páscoa para todos os nossos pets! Tome mais cuidado nessas epocas! Cachorro e gatos não podem comer chocolates!!" },
-        { titulo: "Feliz Páscoa", data: "31/04", funcionario: "Filipe Zulian", conteudo: "Feliz Páscoa para todos os nossos pets! Tome mais cuidado nessas epocas! Cachorro e gatos não podem comer chocolates!!" },
-        { titulo: "Feliz Páscoa", data: "31/04", funcionario: "Filipe Zulian", conteudo: "Feliz Páscoa para todos os nossos pets! Tome mais cuidado nessas epocas! Cachorro e gatos não podem comer chocolates!!" },
-        { titulo: "Feliz Páscoa", data: "31/04", funcionario: "Filipe Zulian", conteudo: "Feliz Páscoa para todos os nossos pets! Tome mais cuidado nessas epocas! Cachorro e gatos não podem comer chocolates!!" }
-    ];
+const BlogCard = () => {
+  const [cards, setCards] = useState([]);
 
-    return (
-        <div className='cardDiv'>
-            {cards.map((card, index) => (
-                <div className="cards" key={index}>
-                    <div className="cardHeader">
-                        <span>{card.titulo}</span>
-                        <span>{card.data}</span>
-                    </div>
-                    <div className='cardConteudo'>
-                        <span>{card.conteudo}</span>
-                    </div>
-                    <div className='cardFooter'>
-                        <span>{card.funcionario}</span>
-                    </div>
-                </div>
-            ))}
+  useEffect(() => {
+    try {
+      getBlogs().then((response) => setCards(response));
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
+  }, []);
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear().toString();
+    return `${day < 10 ? "0" + day : day}/${
+      month < 10 ? "0" + month : month
+    }/${year}`;
+  };
+
+  return (
+    <div className="cardDiv">
+      {cards.map((card, index) => (
+        <div className="cards" key={index}>
+          <div className="cardHeader">
+            <span>{card.titulo}</span>
+            <span>{formatDate(card.data)}</span>
+          </div>
+          <div className="cardConteudo">
+            <span>{card.descricao}</span>
+          </div>
+          <div className="cardFooter">
+            <span>{card.usuario.nome}</span>
+          </div>
         </div>
-    );
-}
+      ))}
+    </div>
+  );
+};
 
 export default BlogCard;

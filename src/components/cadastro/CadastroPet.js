@@ -9,6 +9,7 @@ const CadastroPet = ({setModal, user}) => {
   });
 
   const enviar = (user) => {
+    setPet();
     cadastrarUsuario(user, pet);
   }
 

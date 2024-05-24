@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const basedUrl = "http://localhost:8080"
+const basedUrl = "http://192.168.0.116:8080"
 
 export async function getBlogs() {
     try {

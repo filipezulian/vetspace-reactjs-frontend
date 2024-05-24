@@ -22,9 +22,6 @@ const ComponentCadastro = ({
     <div>
       <span className={styles.seusDados}>SEUS DADOS</span>
       <div className={styles.divCadastro}>
-        <button onClick={() => console.log(user)}>
-          AQUIIII
-        </button>
         <Form className={login.loginForm}>
           <div className={styles.formInputs}>
             <Form.Label>Nome:</Form.Label>

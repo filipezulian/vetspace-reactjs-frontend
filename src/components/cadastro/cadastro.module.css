@@ -15,6 +15,11 @@
     display: flex;
     gap: 3rem;
 }
+.divBotoesPet{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
 .divCadastro{
     display: flex;
     flex-direction: column;
@@ -32,4 +37,21 @@
     text-align: left;
     font-weight: 500;
     width: 100%;
+}
+.petLabelDiv{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    gap: 47%;
+    margin-top: 1rem;
+}
+.petInputDiv{
+    display: flex;
+    width: 100%;
+    justify-content: start;
+    margin-right: 5rem;
+    gap: 10%;
+}
+.resizeNone{
+    resize: none;
 }

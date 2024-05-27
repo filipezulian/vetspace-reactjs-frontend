@@ -6,6 +6,19 @@ body{
     flex-direction: row;
     justify-content: space-between;
 }
+.bodyNossaEquipe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+.descricaoNossaEquipe{
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
 .blogColumnDetail{
     width: 20%;
     background-image: urL("../public/patinhasVerde.svg");
@@ -24,4 +37,13 @@ body:has(.telasLogin) {
     .telasLogin{
         height: 100vh;
     }
+    .bodyNossaEquipe{
+        margin-top: 10rem;
+    }
+}
+.divsNossaEquipe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
 }

@@ -11,10 +11,10 @@ const ComponentCadastro = ({
 }) => {
   
   const handleFormField = (e) => {
-    const { name, value} = e.target;
+    const { nome, value} = e.target;
     setUser((prevState) => ({
       ...prevState,
-      [name]: value,
+      [nome]: value,
     }));
   };
 
@@ -28,7 +28,7 @@ const ComponentCadastro = ({
             <Form.Control
               className={login.boxShadow}
               type="text"
-              name="name"
+              name="nome"
               onChange={handleFormField}
             />
           </div>

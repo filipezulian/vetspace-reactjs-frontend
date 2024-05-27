@@ -7,7 +7,7 @@ const Cadastro = () => {
 
   const [modal, setModal] = useState(1);
   const [user, setUser] = useState({
-    name: "",
+    nome: "",
     telefone: "",
     email: "",
     password: ""

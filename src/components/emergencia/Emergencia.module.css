@@ -1,0 +1,32 @@
+.cardFunc{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #B6B6B6;
+    border-radius: 15px;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 2rem 0.5rem 2rem;
+}
+.nome{
+    font-size: x-large;
+    font-weight: 600;
+    padding-bottom: 5%;
+}
+.conteudoText{
+    font-size: large;
+    font-weight: 600;
+    padding-bottom: 5%;
+}
+.titulo{
+    font-weight: 600;
+    color: #747474;
+    font-size: large;
+}
+.infos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+}

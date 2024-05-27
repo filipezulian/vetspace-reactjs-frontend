@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Navbar, Container, Offcanvas, Form } from "react-bootstrap";
+import { useAuthCtx } from "../../context/AuthContext";
 
-const Header = ({ signed, user, setSigned }) => {
-  // const { user, signed, logout } = useAutCtx();
-  const [userForm, setUserForm] = useState({
-    name: user.name,
-    telefone: user.telefone,
-  });
+const Header = () => {
+  const { logout, user, signed } = useAuthCtx();
+
+  // const [userForm, setUserForm] = useState({
+  //   nome: user.nome,
+  //   telefone: user.telefone,
+  // });
+
   return (
     <div>
       <header className="d-flex flex-wrap align-items-center line-header">
         <nav className="navBar">
-          <Link to={"/"} className="">
+          <Link to={"/"}>
             <span className="fs-4 text-dark">
               <img src="logo2.png" alt="Logo" width="60"></img>
             </span>
@@ -107,7 +110,7 @@ const Header = ({ signed, user, setSigned }) => {
           {signed && (
             <>
               {[false].map((expand) => (
-                <Navbar key={expand} expand={expand} className="">
+                <Navbar key={expand} expand={expand}>
                   <Container fluid>
                     <Navbar.Toggle
                       className="unsetTudo"
@@ -122,18 +125,17 @@ const Header = ({ signed, user, setSigned }) => {
                     >
                       <Offcanvas.Header
                         closeButton
-                        onHide={() =>
-                          setUserForm({
-                            name: user.name,
-                            email: user.email,
-                            telefone: user.telefone,
-                          })
-                        }
+                        // onHide={() =>
+                        //   setUserForm({
+                        //     nome: user.nome,
+                        //     email: user.email,
+                        //     telefone: user.telefone,
+                        //   })}
                       >
                         <Offcanvas.Title
                           id={`offcanvasNavbarLabel-expand-${expand}`}
                         >
-                          Olá, {userForm.name}!
+                          Olá, {user.nome}!
                         </Offcanvas.Title>
                       </Offcanvas.Header>
                       <Offcanvas.Body className="FormWrapper">
@@ -144,36 +146,37 @@ const Header = ({ signed, user, setSigned }) => {
                           <Form.Label className="w-100 mt-3">Nome:</Form.Label>
                           <Form.Control
                             type="text"
-                            value={userForm.name}
+                            value={user.nome}
                             placeholder="Seu Nome Aqui!!"
                             className="me-2"
                             aria-label="Search"
-                            onChange={(e) => {
-                              setUserForm((prevState) => {
-                                return {
-                                  ...prevState,
-                                  name: e.target.value,
-                                };
-                              });
-                            }}
+                            // onChange={(e) => {
+                            //   setUserForm((prevState) => {
+                            //     return {
+                            //       ...prevState,
+                            //       nome: e.target.value,
+                            //     };
+                            //   });
+                            // }}
                           />
                           <Form.Label className="w-100 mt-3">
                             Telefone:
                           </Form.Label>
                           <Form.Control
                             type="number"
-                            value={userForm.telefone}
+                            value={user.telefone}
+                            // value={userForm.telefone}
                             placeholder="Seu Telefone Aqui!!"
                             className="me-2"
                             aria-label="Search"
-                            onChange={(e) => {
-                              setUserForm((prevState) => {
-                                return {
-                                  ...prevState,
-                                  telefone: e.target.value,
-                                };
-                              });
-                            }}
+                            // onChange={(e) => {
+                            //   setUserForm((prevState) => {
+                            //     return {
+                            //       ...prevState,
+                            //       telefone: e.target.value,
+                            //     };
+                            //   });
+                            // }}
                           />
                           <Form.Label className="w-100 mt-3">
                             E-mail:
@@ -189,7 +192,7 @@ const Header = ({ signed, user, setSigned }) => {
                         </Form>
                         <button
                           className="corvermelha"
-                          onClick={() => setSigned(false)}
+                          onClick={logout}
                         >
                           LOGOUT
                         </button>

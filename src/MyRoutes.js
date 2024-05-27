@@ -1,4 +1,3 @@
-import { useAutCtx } from "./context/AuthContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Blogs from "./pages/site/Blogs";
 import Header from "./components/header/Header";
@@ -8,32 +7,39 @@ import { useState } from "react";
 import Login from "./pages/site/Login";
 import Cadastro from "./pages/site/Cadastro";
 
-const PrivateCliente = ({ Item, signed, tipo}) => {
-    return (signed > 0 && tipo === '3') ? <Item /> : <Blogs/>
+import { useAuthCtx } from "./context/AuthContext";
+
+const PrivateCliente = ({Item, permissao}) => {
+    const { signed } = useAuthCtx()
+    return (signed > 0 && permissao === '3') ? <Item /> : <Login/>
 }
 
-const PrivateFuncionario = ({Item, signed, tipo}) => {
-    return (signed > 0 && tipo === '2') ? <Item /> : <Blogs/>
+const PrivateFuncionario = ({Item, permissao}) => {
+    const { signed } = useAuthCtx()
+    return (signed > 0 && permissao === '2') ? <Item /> : <Login/>
 }
 
-const PrivateAdmin = ({Item, signed, tipo}) => {
-    return (signed > 0 && tipo === '1') ? <Item /> : <Blogs/>
+const PrivateAdmin = ({Item}) => {
+    const { permissao } = useAuthCtx()
+    const { signed } = useAuthCtx()
+    return (signed > 0 && permissao === '1') ? <Item /> : <Login/>
 }
 
 const MyRoutes = () => {
-    const [signed, setSigned] = useState(false);
-    const user = {permissao:3, name:"Filipe", email:"filipe.zulian@email.com", telefone:"4899111111"}
-    //const {signed, tipo} = useAutCtx();
+    const {signed} = useAuthCtx();
+
     return (
         <>
             <BrowserRouter>
-                <Header signed={signed} setSigned={setSigned} user={user}/>
+                <Header />
                 <Routes>
                     <Route element={<Blogs/>} path="/"></Route>
                     <Route element={<NossaEquipe/>} path="/nossaEquipe"></Route>
                     <Route element={<Emergencia/>} path="/emergencia"></Route>
                     <Route element={<Login/>} path="/login"></Route>
                     <Route element={<Cadastro/>} path="/cadastro"></Route>
+
+                    <Route element={<Blogs/>} path="*"></Route>
                 </Routes>
             </BrowserRouter>
         </>

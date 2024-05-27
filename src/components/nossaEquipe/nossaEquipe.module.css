@@ -25,3 +25,20 @@
     align-items: flex-start;
     gap: 3rem;
 }
+@keyframes rainbow {
+    0% { stroke: red; }
+    14% { stroke: orange; }
+    28% { stroke: yellow; }
+    42% { stroke: green; }
+    57% { stroke: blue; }
+    71% { stroke: indigo; }
+    85% { stroke: violet; }
+    100% { stroke: red; }
+  }
+  
+.cameleon {
+    fill: none;
+    stroke-width: 10;
+    stroke: red; /* Initial stroke color */
+    animation: rainbow 5s linear infinite;
+}

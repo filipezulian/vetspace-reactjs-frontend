@@ -3,16 +3,16 @@ import styles from "./nossaEquipe.module.css"
 
 
 const ComponenteNossaEquipe = () => {
-  const photos = ["bombadao.png", "buldogFrances.png", "corgi.png", "principe.png", "lizzard.png", "snake.png"]
-  const randomPhoto = photos[Math.floor(Math.random() * 6)]
+  const photos = ["bombadao.png", "buldogFrances.png", "corgi.png", "principe.png", "lizzard.png", "snake.png", "dalmata.png", "camelon.svg"]
+  const randomPhoto = photos[Math.floor(Math.random() * 8)]
 
   return (
     <div className={styles.cardEquipe}>
-      <img src={`./funcPhotos/${randomPhoto}`} height="100px" width="100px"></img>
+      <img src={`./funcPhotos/${randomPhoto}`} alt='img' height="100px" ></img>
       <span className={styles.conteudoText}>Filipe Zulian</span>
       <div className={styles.infos}>
         <span className={styles.titulo}>Dia de Plantão: </span>
-        <span className={styles.conteudoText}>Sempre ;) </span>
+        <span className={styles.conteudoText}>Domingo/Domingo</span>
       </div>
       <div className={styles.infos}>
         <span className={styles.titulo}>Especialização: </span>

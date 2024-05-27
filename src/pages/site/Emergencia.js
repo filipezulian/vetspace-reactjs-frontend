@@ -9,7 +9,7 @@ const Emergencia = () => {
       <div className={styles.conteudoBody}>
         <div className={styles.conteudoBody}>
           <span className={styles.titulo}>Plantão de: </span>
-          <span className={styles.info}>SEMPRE</span>
+          <span className={styles.info}>Domingo/Domingo</span>
         </div>
         <ComponenteEmergencia />
         <div className={styles.conteudoBody}>

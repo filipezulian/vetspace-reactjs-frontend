@@ -1,9 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-
 export const AuthContext = createContext({});
 export const useAuthCtx = () => useContext(AuthContext);
-
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
@@ -79,21 +77,6 @@ export const AuthProvider = ({ children }) => {
         try {
             const response = await axios.post('http://localhost:8080/usuario/autenticar', credencial);
             return response.data;
-            // const response = await fetch('http://localhost:8080/usuario/autenticar', {
-            //     method: "POST",
-            //     mode: "cors",
-            //     cache: "no-cache",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            //     redirect: "follow",
-            //     referrerPolicy: "no-referrer",
-            //     body: JSON.stringify(credenciais),
-            // });
-
-            // const data = await response.json();
-
-            // return data;
         } catch (err) {
             console.error("Erro ao autenticar:", err);
             return null

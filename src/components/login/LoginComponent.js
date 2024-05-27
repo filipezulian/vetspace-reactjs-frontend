@@ -25,7 +25,7 @@ const LoginComponent = () => {
       setLoading(false);
       return;
     }
-    navigate("/pet");
+    navigate("/");
   };
 
   return (

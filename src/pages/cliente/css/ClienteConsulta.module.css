@@ -1,0 +1,22 @@
+.bodyConteudo{   
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30%;
+    margin: 3rem;
+}
+.botao{
+    border: none;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background-color: #CCE7D8;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+.boxShadow{
+    box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.267);
+}
+body:has(.bodyConteudo){
+    overflow: hidden;
+}

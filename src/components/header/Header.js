@@ -1,24 +1,23 @@
-import React, { useState } from "react";
 import "./Header.css";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Navbar, Container, Offcanvas, Form } from "react-bootstrap";
 import { useAuthCtx } from "../../context/AuthContext";
+import logo3 from "../../assets/logo3.png"
 
 const Header = () => {
   const { logout, user, signed } = useAuthCtx();
-
   // const [userForm, setUserForm] = useState({
   //   nome: user.nome,
   //   telefone: user.telefone,
   // });
-
+ 
   return (
     <div>
       <header className="d-flex flex-wrap align-items-center line-header">
         <nav className="navBar">
           <Link to={"/"}>
             <span className="fs-4 text-dark">
-              <img src="logo2.png" alt="Logo" width="60"></img>
+              <img src={logo3} alt="Logo" width="60px" height="60px"/>
             </span>
           </Link>
           <ul className="nav nav-pills">
@@ -46,7 +45,7 @@ const Header = () => {
             {signed && user.permissao === 3 && (
               <>
                 <li className="nav-item">
-                  <Link className="navText" to={"#"}>
+                  <Link className="navText" to={"/cliente/consulta"}>
                     CONSULTA
                   </Link>
                 </li>
@@ -116,7 +115,7 @@ const Header = () => {
                       className="unsetTudo"
                       aria-controls={`offcanvasNavbar-expand-${expand}`}
                     >
-                      <img src="gato.svg" width="40" alt="User"></img>
+                      <span className="buttonText">Usuário</span>
                     </Navbar.Toggle>
                     <Navbar.Offcanvas
                       id={`offcanvasNavbar-expand-${expand}`}
@@ -190,12 +189,13 @@ const Header = () => {
                           />
                           <button className="corverde mt-5">EDITAR</button>
                         </Form>
-                        <button
+                        <Link
                           className="corvermelha"
                           onClick={logout}
+                          to={"/"}
                         >
                           LOGOUT
-                        </button>
+                        </Link>
                       </Offcanvas.Body>
                     </Navbar.Offcanvas>
                   </Container>

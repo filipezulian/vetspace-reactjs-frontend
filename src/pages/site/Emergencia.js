@@ -11,6 +11,7 @@ const Emergencia = () => {
         <div className={styles.conteudoBody}>
           <span className={styles.titulo}>Plantão de: </span>
           <span className={styles.info}>{Diadasemana.getDayName(new Date().getDay())}</span>
+
         </div>
         <ComponenteEmergencia />
         <div className={styles.conteudoBody}>

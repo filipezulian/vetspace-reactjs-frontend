@@ -4,7 +4,7 @@ import login from "../login/Login.module.css";
 import { cadastrarUsuario } from "../../routes/Login"
 import { Form } from "react-bootstrap";
 
-const CadastroPet = ({setModal, user}) => {
+const CadastroPet = (user) => {
   const [pet, setPet] = useState({
 
   });

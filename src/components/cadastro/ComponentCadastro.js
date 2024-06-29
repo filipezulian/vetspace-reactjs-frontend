@@ -4,17 +4,13 @@ import { Form } from "react-bootstrap";
 import styles from "./cadastro.module.css";
 import login from "../login/Login.module.css";
 
-const ComponentCadastro = ({
-  setModal, 
-  user, 
-  setUser
-}) => {
+const ComponentCadastro = (setUser, user) => {
   
   const handleFormField = (e) => {
-    const { nome, value} = e.target;
+    const { name, value } = e.target;
     setUser((prevState) => ({
       ...prevState,
-      [nome]: value,
+      [name]: value,
     }));
   };
 
@@ -29,16 +25,24 @@ const ComponentCadastro = ({
               className={login.boxShadow}
               type="text"
               name="nome"
+              maxLength="50"
+              pattern="[A-Za-z\s]+"
+              title="Nome deve conter apenas letras"
               onChange={handleFormField}
+              required
             />
           </div>
           <div className={styles.formInputs}>
             <Form.Label>Telefone:</Form.Label>
             <Form.Control
               className={login.boxShadow}
-              type="number"
+              type="tel"
               name="telefone"
+              maxLength="15"
+              pattern="\d+"
+              title="Telefone deve conter apenas números"
               onChange={handleFormField}
+              required
             />
           </div>
           <div className={styles.formInputs}>
@@ -48,6 +52,7 @@ const ComponentCadastro = ({
               type="email"
               name="email"
               onChange={handleFormField}
+              required
             />
           </div>
           <div className={styles.formInputs}>
@@ -56,20 +61,15 @@ const ComponentCadastro = ({
               className={login.boxShadow}
               type="password"
               name="password"
+              minLength="6"
               onChange={handleFormField}
+              required
             />
           </div>
           <div className={styles.divBotoes}>
             <Link className={`${styles.corverde} ${login.boxShadow}`} to="/login">
               VOLTAR
             </Link>
-            <button
-              type="button"
-              onClick={() => setModal(2)}
-              className={`${login.EntrarButton} ${login.boxShadow}`}
-            >
-              CADASTRAR
-            </button>
           </div>
         </Form>
       </div>

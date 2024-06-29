@@ -4,6 +4,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 export const AuthContext = createContext({});
 export const useAuthCtx = () => useContext(AuthContext);
 
+const basedUrl = "http://192.168.0.117:8080";
+const basedUrl2 = "http://localhost:8080"
+
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
@@ -53,7 +56,7 @@ export const AuthProvider = ({ children }) => {
 
     const recuperarUsuarios = async () => {
         try {
-            const response = await fetch('http://localhost:8080/usuario', {
+            const response = await fetch(`${basedUrl}/usuario`, {
                 method: "GET",
                 mode: "cors",
                 cache: "no-cache",
@@ -77,7 +80,7 @@ export const AuthProvider = ({ children }) => {
         const credencial = { "email": email, "senha": senha };
 
         try {
-            const response = await axios.post('http://localhost:8080/usuario/autenticar', credencial);
+            const response = await axios.post(`${basedUrl}/usuario/autenticar`, credencial);
             return response.data;
             // const response = await fetch('http://localhost:8080/usuario/autenticar', {
             //     method: "POST",

@@ -1,5 +1,6 @@
 import axios from "axios"
 
+const basedUrl2 = "http://192.168.0.117:8080"
 const basedUrl = "http://localhost:8080"
 
 export const cadastrarUsuario = async (user, pet) => {

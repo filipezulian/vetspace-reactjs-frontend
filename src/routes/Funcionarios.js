@@ -1,6 +1,25 @@
 import axios from "axios"
 
+const basedUrl2 = "http://192.168.0.117:8080"
 const basedUrl = "http://localhost:8080"
+
+export const getFuncionarios = async () => {
+    try {
+        const response = await axios.get(`${basedUrl}/funcionario`)
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }   
+}
+
+export const getPlantao = async (today) => {
+    try {
+        const response = await axios.get(`${basedUrl}/funcionario/plantao/${today}`)
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 export const cadastrarUsuario = async (user, pet) => {
     try {

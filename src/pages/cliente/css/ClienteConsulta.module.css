@@ -1,22 +1,23 @@
-.bodyConteudo{   
-    height: 100vh;
+.bodyClienteConstulta{
+    display: flex;
+}
+.infoVetspace{
     display: flex;
     flex-direction: column;
-    gap: 30%;
-    margin: 3rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    width: 50%;
 }
-.botao{
-    border: none;
-    padding: 0.75rem;
-    border-radius: 10px;
-    background-color: #CCE7D8;
+
+.botaoEmergencia{
+    background-color: #FFC1C1;
+    padding: 10px 36px 10px 36px;
+    margin-top: 82px;
+    border-radius: 14px;
     text-decoration: none;
     color: black;
     font-weight: 500;
-}
-.boxShadow{
+    font-size: large;
     box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.267);
-}
-body:has(.bodyConteudo){
-    overflow: hidden;
 }

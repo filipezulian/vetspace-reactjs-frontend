@@ -9,7 +9,7 @@ import Cadastro from "./pages/site/Cadastro";
 import { useAuthCtx } from "./context/AuthContext";
 import Error404 from "./pages/Error404";
 import ClienteConsulta from "./pages/cliente/ClienteConsulta";
-import NovaConsulta from "./pages/cliente/NovaConsulta";
+import ClientePetView from "./pages/cliente/Pet/ClientePetView";
 
 const PrivateCliente = ({Item}) => {
     const { signed } = useAuthCtx();
@@ -41,8 +41,9 @@ const MyRoutes = () => {
                     <Route element={<Login/>} path="/login"></Route>
                     <Route element={<Cadastro/>} path="/cadastro"></Route>
 
-                    <Route element={<PrivateCliente Item={ClienteConsulta} />} path="/cliente/consulta"></Route>
-                    <Route element={<PrivateCliente Item={NovaConsulta} />} path="/cliente/consulta/nova"></Route>
+                    {/* <Route element={<ClienteConsulta/>} path="/cliente/consulta"></Route> */}
+                    <Route element={<PrivateCliente Item={ClienteConsulta} />} path="/cliente/consulta"></Route> 
+                    <Route element={<PrivateCliente Item={ClientePetView} />} path="/cliente/pet"></Route> 
 
                     <Route element={<Error404/>} path="*"></Route>
                 </Routes>

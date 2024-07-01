@@ -1,0 +1,14 @@
+.botao{
+    border: none;
+    padding: 10px 30px 10px 30px;
+    border-radius: 14px;
+    background-color: #CCE7D8;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.267);
+}
+.infoText{
+    font-weight: 500;
+    padding-left: 10px;
+}

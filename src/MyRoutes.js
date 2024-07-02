@@ -10,6 +10,8 @@ import { useAuthCtx } from "./context/AuthContext";
 import Error404 from "./pages/Error404";
 import ClienteConsulta from "./pages/cliente/ClienteConsulta";
 import ClientePetView from "./pages/cliente/Pet/ClientePetView";
+import ClientePetAdd from "./pages/cliente/ClientePetAdd";
+import ClientePetEdit from "./pages/cliente/ClientePetEdit";
 
 const PrivateCliente = ({Item}) => {
     const { signed } = useAuthCtx();
@@ -41,9 +43,13 @@ const MyRoutes = () => {
                     <Route element={<Login/>} path="/login"></Route>
                     <Route element={<Cadastro/>} path="/cadastro"></Route>
 
-                    {/* <Route element={<ClienteConsulta/>} path="/cliente/consulta"></Route> */}
+                    {/* CLIENTES */}
                     <Route element={<PrivateCliente Item={ClienteConsulta} />} path="/cliente/consulta"></Route> 
+
+                    {/* PETS */}
                     <Route element={<PrivateCliente Item={ClientePetView} />} path="/cliente/pet"></Route> 
+                    <Route element={<PrivateCliente Item={ClientePetAdd} />} path="/cliente/pet/add"></Route> 
+                    <Route element={<PrivateCliente Item={ClientePetEdit} />} path="/cliente/pet/:id/edit"></Route> 
 
                     <Route element={<Error404/>} path="*"></Route>
                 </Routes>

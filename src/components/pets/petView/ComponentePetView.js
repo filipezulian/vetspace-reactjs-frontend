@@ -5,7 +5,8 @@ import birb from "../../../assets/birb.png";
 import dog from "../../../assets/dog.png";
 import gato from "../../../assets/gato.png";
 import snake from "../../../assets/snake.png";
-import styles from "./css/petView.module.css"
+import styles from "./css/petView.module.css";
+import { Link } from "react-router-dom";
 
 const ComponentePetView = () => {
   const [cards, setCards] = useState([]);
@@ -16,21 +17,21 @@ const ComponentePetView = () => {
       try {
         const response = await getPetsPorUsuario(ctx.id);
         setCards(response);
+        console.log(cards)
       } catch (error) {
         console.error("Error fetching Pets:", error);
       }
     };
 
     fetchPets();
-  }, [ctx.id]);
-
-  console.log(cards);
+  }, [ctx.id]); 
 
   const getImage = (card) => {
+    console.log(card.tipo)
     switch (card.tipo) {
       case "GATO":
         return <img src={gato} height="100px" alt="Gato"></img>;
-      case "REPTILE":
+      case "REPTIL":
         return <img src={snake} height="100px" alt="Reptile"></img>;
       case "CACHORRO":
         return <img src={dog} height="100px" alt="Cachorro"></img>;
@@ -42,39 +43,44 @@ const ComponentePetView = () => {
   };
 
   const handleGenero = (genero) => {
-    if(genero){
-        return "Masculino"
+    if (genero) {
+      return "Masculino";
     }
-    return "Feminino"
-  }
+    return "Feminino";
+  };
 
   const formatDate = (dateString) => {
     const dateObj = new Date(dateString);
-    const day = dateObj.getDate().toString().padStart(2, '0');
-    const month = (dateObj.getMonth() + 1).toString().padStart(2, '0');
+    const day = dateObj.getDate().toString().padStart(2, "0");
+    const month = (dateObj.getMonth() + 1).toString().padStart(2, "0");
     const year = dateObj.getFullYear();
     return `${day}/${month}/${year}`;
-};
+  };
 
   return (
-    <div>
+    <div className={styles.agrupamento}>
       {cards.map((card, index) => (
-        <div>
+        <div className={styles.card}>
           <div key={card.id}>
             {getImage(card)}
-            <span>{card.nome}</span>
+            <span className={styles.cardTitulo}>{card.nome}</span>
           </div>
           <div>
             <span>Nascimento:</span>
-            <span className={styles.infoText}>{formatDate(card.nascimento)}</span>
+            <span className={styles.infoText}>
+              {formatDate(card.nascimento)}
+            </span>
           </div>
           <div>
-          
             <span>Gênero:</span>
             <span className={styles.infoText}>{handleGenero(card.sexo)}</span>
           </div>
           <div>
-            <button className={styles.botao}>Mais Informações</button>
+            <span>Observação:</span>
+            <span className={styles.infoText}>{card.observacao}</span>
+          </div>
+          <div className={styles.cardButton}>
+            <Link to={`/cliente/pet/${card.id}/edit`} className={styles.botao}>Mais Informações</Link>
           </div>
         </div>
       ))}

@@ -12,3 +12,32 @@
     font-weight: 500;
     padding-left: 10px;
 }
+.agrupamento{
+    display: flex;
+    gap: 44px;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    border: 1px solid #B6B6B6;
+    padding: 22px;
+    height: 500px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: inherit;
+    border-radius: 20px;
+}
+.cardButton{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.cardTitulo{
+    font-weight: 600;
+    font-size: x-large;
+    margin-left: 3rem;
+}

@@ -90,9 +90,9 @@ const CadastroPet = (user) => {
           </div>
         </Form>
           <div className={styles.divBotoesPet}>
-            <button className={`${styles.corverde} ${login.boxShadow}`} onClick={() => setModal(1)}>
+            {/* <button className={`${styles.corverde} ${login.boxShadow}`} onClick={() => setModal(1)}>
               VOLTAR
-            </button>
+            </button> */}
             <button
               type="button"
               className={`${login.EntrarButton} ${login.boxShadow}`}

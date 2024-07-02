@@ -1,13 +1,10 @@
 import styles from "./css/ClienteConsulta.module.css";
-import React, { useState } from "react";
+import React from "react";
 import ComponenteConsulta from "../../components/Consulta/cliente/ComponenteConsulta";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const ClienteConsulta = () => {
-  {
-    /* <Link className={`${styles.botao} ${styles.boxShadow}`} to="/cliente/consulta/nova">Nova Consulta</Link> */
-  }
 
   return (
     <div className={styles.bodyClienteConstulta}>

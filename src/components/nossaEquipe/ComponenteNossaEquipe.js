@@ -38,6 +38,7 @@ const ComponenteNossaEquipe = () => {
               src={`./funcPhotos/${randomPhoto}`}
               height="100px"
               width="100px"
+              alt="Foto"
             ></img>
             <span className={styles.conteudoText}>{card.nome}</span>
             <div className={styles.infos}>

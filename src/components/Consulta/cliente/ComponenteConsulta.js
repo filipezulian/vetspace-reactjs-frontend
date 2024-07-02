@@ -3,6 +3,11 @@ import styles from "./css/ComponenteConsulta.module.css";
 import { Form } from "react-bootstrap";
 import { getPetsPorUsuario, submitConsulta } from "../../../routes/Pet";
 import { useAuthCtx } from "../../../context/AuthContext";
+import "react-notifications/lib/notifications.css";
+import {
+  NotificationManager,
+  NotificationContainer,
+} from "react-notifications";
 
 const ComponenteConsulta = () => {
   const [cards, setCards] = useState([]);
@@ -25,41 +30,74 @@ const ComponenteConsulta = () => {
     fetchPets();
   }, [cntx.id]);
 
-  const handleSubmit = () => {
+  const createNotification = (type) => {
+    switch (type) {
+      case "success":
+        NotificationManager.success(
+          "Você solicitou uma nova consulta",
+          "Sucesso!"
+        );
+        break;
+      case "warning":
+        NotificationManager.warning(
+          "Parece que esqueceu de preencher o formulário! Tente de novo!",
+          "Opa!",
+          3000
+        );
+        break;
+      case "error":
+        NotificationManager.error(
+          "Erro!",
+          "Ocorreu um erro ao solicitar a consulta!",
+          5000
+        );
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleSubmit = async () => {
     const dateTime = `${selectedDate}T${selectedTime}:00`;
 
     const formData = {
       pet: {
-        id: selectedPet
+        id: selectedPet,
       },
       data: dateTime,
-      obs: observation
+      obs: observation,
     };
 
     try {
-      const response = submitConsulta(formData);
-      console.log("Consulta submitted successfully:", response);
-      setSelectedPet("");
-      setSelectedDate("");
-      setSelectedTime("");
-      setObservation("");
+      const response = await submitConsulta(formData);
+      if (!response) {
+        createNotification("warning");
+      } else if (response) {
+        createNotification("success");
+        clear();
+      }
     } catch (error) {
       console.error("Error submitting consulta:", error);
-      setSelectedPet("");
-      setSelectedDate("");
-      setSelectedTime("");
-      setObservation("");
+      createNotification("error");
     }
+  };
+
+  const clear = () => {
+    setSelectedPet("");
+    setSelectedDate("");
+    setSelectedTime("");
+    setObservation("");
   };
 
   const today = new Date();
   const yyyy = today.getFullYear();
-  const mm = String(today.getMonth() + 1).padStart(2, '0');
-  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
   const minDate = `${yyyy}-${mm}-${dd}`;
 
   return (
     <div className={`${styles.novaConsultaBody}`}>
+      <NotificationContainer />
       <span className={styles.titulo}>NOVA CONSULTA</span>
       <div className={`${styles.formConsulta}`}>
         <div className={styles.formDiv}>
@@ -69,6 +107,7 @@ const ComponenteConsulta = () => {
             value={selectedPet}
             onChange={(e) => setSelectedPet(e.target.value)}
           >
+            <option value="">Selecione um pet</option>
             {cards.map((pet) => (
               <option key={pet.id} value={pet.id}>
                 {pet.nome}
@@ -93,8 +132,22 @@ const ComponenteConsulta = () => {
             value={selectedTime}
             onChange={(e) => setSelectedTime(e.target.value)}
           >
-            <option value="">Select time</option>
-            {["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00"].map(time => (
+            <option value="">Selecione um horário</option>
+            {[
+              "09:00",
+              "09:30",
+              "10:00",
+              "10:30",
+              "11:00",
+              "11:30",
+              "13:00",
+              "13:30",
+              "14:00",
+              "14:30",
+              "15:00",
+              "15:30",
+              "16:00",
+            ].map((time) => (
               <option key={time} value={time}>
                 {time}
               </option>
@@ -113,7 +166,10 @@ const ComponenteConsulta = () => {
           />
         </div>
         <div className={styles.formDiv}>
-          <button onClick={handleSubmit} className={`${styles.botao} ${styles.boxShadow}`}>
+          <button
+            onClick={handleSubmit}
+            className={`${styles.botao} ${styles.boxShadow}`}
+          >
             MARCAR
           </button>
         </div>

@@ -1,0 +1,43 @@
+.filtroDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
+    border: 1px solid #b6b6b6;
+    border-radius: 15px;
+    padding: 15px 25px 15px 25px;
+}
+.divBody{    
+    display: flex;
+    flex-direction: column;
+    margin: 3rem;
+    gap: 5rem;
+}
+.flexStart{
+    width: 30%;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.divTitulo{
+    display: flex;
+    font-weight: 600;
+    font-size: large;
+}
+.trLeft{
+    background-color: #CCE7D8 !important;
+    border-radius: 10px 0 0 0 !important;
+}
+.trRight{
+    background-color: #CCE7D8 !important;
+    border-radius: 0 10px 0 0 !important;
+}
+.trMid{
+    background-color: #CCE7D8 !important;
+}
+.divTable{
+    border: 1px solid #DEE2E6;
+    border-radius: 15px !important;
+}

@@ -51,8 +51,27 @@ export async function editPet(formData, id) {
 
 export async function getHistoricoMedico(id) {
   try {
-    
+    const response = await axios.get(`${basedUrl}/historico/buscar/pet/${id}`)
+    return response.data
   } catch (error) {
-    
+    console.log("Error Editing Pet: ", error)
   }
+}
+
+export const getClientes = async () => {
+  try {
+      const response = await axios.get(`${basedUrl}/usuario/clientes`)
+      return response.data;
+  } catch (error) {
+      console.error(error);
+  }   
+}
+
+export const getPetsByCliente = async (id) => {
+  try {
+      const response = await axios.get(`${basedUrl}/pet/usuario/${id}/pets`)
+      return response.data;
+  } catch (error) {
+      console.error(error);
+  }   
 }

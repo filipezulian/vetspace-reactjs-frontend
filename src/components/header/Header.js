@@ -61,32 +61,32 @@ const Header = () => {
             {signed && (user.permissao === 2 || user.permissao === 1) && (
               <>
                 <li className="nav-item">
-                  <Link className="navText" to={"#"}>
+                  <Link className="navText" to={"/func/consulta"}>
                     CONSULTAS
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="navText" to={"#"}>
+                  <Link className="navText" to={"/func/cliente/"}>
                     CLIENTES
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="navText" to={"#"}>
+                  <Link className="navText" to={""}>
                     BLOGS
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="navText" to={"#"}>
+                  <Link className="navText" to={""}>
                     MATERIAIS
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="navText" to={"#"}>
+                  <Link className="navText" to={""}>
                     LABORATÓRIOS
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="navText" to={"#"}>
+                  <Link className="navText" to={""}>
                     SERVIÇOS
                   </Link>
                 </li>
@@ -95,7 +95,7 @@ const Header = () => {
             {/*ADMIN LOGADO */}
             {signed && user.permissao === 1 && (
               <li className="nav-item">
-                <Link className="navText" to={"#"}>
+                <Link className="navText" to={""}>
                   FUNCIONÁRIOS
                 </Link>
               </li>

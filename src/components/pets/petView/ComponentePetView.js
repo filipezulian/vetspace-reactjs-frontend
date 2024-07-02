@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthCtx } from "../../../context/AuthContext";
-import { getPetsPorUsuario } from "../../../routes/Pet";
+import { getHistoricoMedico, getPetsPorUsuario } from "../../../routes/Pet";
 import birb from "../../../assets/birb.png";
 import dog from "../../../assets/dog.png";
 import gato from "../../../assets/gato.png";
@@ -8,8 +8,9 @@ import snake from "../../../assets/snake.png";
 import styles from "./css/petView.module.css";
 import { Link } from "react-router-dom";
 
-const ComponentePetView = () => {
+const ComponentePetView = (id) => {
   const [cards, setCards] = useState([]);
+  const [hist, setHist] = useState({});
   const ctx = useAuthCtx();
 
   useEffect(() => {
@@ -17,17 +18,29 @@ const ComponentePetView = () => {
       try {
         const response = await getPetsPorUsuario(ctx.id);
         setCards(response);
-        console.log(cards)
+        await fetchHistorico(response);
       } catch (error) {
         console.error("Error fetching Pets:", error);
       }
     };
 
+    const fetchHistorico = async (cards) => {
+      let historicos = {};
+      for (let card of cards) {
+        try {
+          let historico = await getHistoricoMedico(card.id);
+          historicos[card.id] = historico.length > 0 ? historico[0].obs : "Nenhuma Observação"
+        } catch (error) {
+          console.error(`Error fetching historico for pet ${card.id}:`, error);
+        }
+      }
+      setHist(historicos);
+    };
+
     fetchPets();
-  }, [ctx.id]); 
+  }, [ctx.id]);
 
   const getImage = (card) => {
-    console.log(card.tipo)
     switch (card.tipo) {
       case "GATO":
         return <img src={gato} height="100px" alt="Gato"></img>;
@@ -43,10 +56,7 @@ const ComponentePetView = () => {
   };
 
   const handleGenero = (genero) => {
-    if (genero) {
-      return "Masculino";
-    }
-    return "Feminino";
+    return genero ? "Masculino" : "Feminino";
   };
 
   const formatDate = (dateString) => {
@@ -59,9 +69,9 @@ const ComponentePetView = () => {
 
   return (
     <div className={styles.agrupamento}>
-      {cards.map((card, index) => (
-        <div className={styles.card}>
-          <div key={card.id}>
+      {cards.map((card) => (
+        <div className={styles.card} key={card.id}>
+          <div>
             {getImage(card)}
             <span className={styles.cardTitulo}>{card.nome}</span>
           </div>
@@ -77,7 +87,7 @@ const ComponentePetView = () => {
           </div>
           <div>
             <span>Observação:</span>
-            <span className={styles.infoText}>{card.observacao}</span>
+            <span className={styles.infoText}>{hist[card.id]}</span>
           </div>
           <div className={styles.cardButton}>
             <Link to={`/cliente/pet/${card.id}/edit`} className={styles.botao}>Mais Informações</Link>

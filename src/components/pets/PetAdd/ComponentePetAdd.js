@@ -54,8 +54,9 @@ const ComponentePetAdd = (petId) => {
       case "success":
         NotificationManager.success("Pet cadastrado com sucesso!", "Sucesso!");
         break;
-      case "warning":
-        NotificationManager.warning(
+        default:
+        case "warning":
+          NotificationManager.warning(
           "Parece que esqueceu de preencher o formulário! Tente de novo!",
           "Opa!",
           3000
@@ -67,8 +68,6 @@ const ComponentePetAdd = (petId) => {
           "Ocorreu um erro ao cadastrar seu pet, tente denovo mais tarde!",
           5000
         );
-        break;
-      default:
         break;
     }
   };
@@ -101,7 +100,6 @@ const ComponentePetAdd = (petId) => {
       nascimento: data,
     };
 
-    if (!idPet) {
       try {
         const response = await AddPet(formData, ctx.id);
         if (!response) {
@@ -115,7 +113,6 @@ const ComponentePetAdd = (petId) => {
         console.error("Error submitting consulta:", error);
         createNotification("error");
       }
-    }
   };
 
   const today = new Date();

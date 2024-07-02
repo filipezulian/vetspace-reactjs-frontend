@@ -24,3 +24,12 @@ export const cadastrarUsuario = async (user, pet) => {
         }
     }
 }
+
+export const EditarUsuario = async (formData, id) => {
+    try {
+        const response = await axios.post(`${basedUrl}/usuario/editar/${id}`, formData)
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
+}

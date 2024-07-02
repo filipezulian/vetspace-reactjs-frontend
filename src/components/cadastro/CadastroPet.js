@@ -5,9 +5,7 @@ import { cadastrarUsuario } from "../../routes/Login"
 import { Form } from "react-bootstrap";
 
 const CadastroPet = (user) => {
-  const [pet, setPet] = useState({
-
-  });
+  const [pet, setPet] = useState({});
 
   const today = new Date();
   const yyyy = today.getFullYear();

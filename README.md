@@ -4,7 +4,7 @@
 
 ###### Desenvolvedores: [Filipe Zulian](https://github.com/filipezulian) e [Gabriela Westphal](https://github.com/gabiiwestphal)
 
-![Em Desenvolvimento](https://img.shields.io/badge/Status-Em_Desenvolvimento-green)
+![Em Stand-by](https://img.shields.io/badge/Status-Stand_by-yellow)
 
 ## Tecnologias Utilizadas
 ![HTML](https://skillicons.dev/icons?i=html)
